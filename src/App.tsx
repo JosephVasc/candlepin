@@ -45,8 +45,10 @@ export default class App extends Component<{}, AppState> {
     this.#apiClient.on('activate', (event: ClientEventData.Activate) => {
         this.setState({
           lane: event.lane, 
+          startingTime: Date.now() 
         });
       });
+  
 
     this.#apiClient.on('update', (event: ClientEventData.Update) => {
       let frameRef = this.state.players?.find(({ name }) => name === event.player)?.frames[event.frame]; // find the player with the name that matches the event player

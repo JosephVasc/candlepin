@@ -1,24 +1,37 @@
-import { ReactElement, useState } from 'react';
+import { ReactElement, useState, useEffect } from 'react';
 
 import './BowlingLane.css';
 
 export interface BowlingLaneProps {
   startingTime: number;
   bowlingLane: number;
-
 }
 
 export default function BowlingLane({ bowlingLane, startingTime}: BowlingLaneProps): ReactElement {
   const [time, setTime] = useState(0);
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
+  
+
   // some state problem is causing the starting time and lane to bug out,
   // I think it is because the state for active is not being updated properly
-  setInterval(() => {
-    setTime(Math.round((Date.now() - startingTime)/ 1000)); // set the time from starting time
-    setMinutes(Math.floor(time/60)); // convert it to minutes
-    setSeconds(time%60); // convert it to seconds
-  }, 1000);
+  // setInterval(() => {
+  //   setTime(Math.round((Date.now() - startingTime)/ 1000)); // set the time from starting time
+  //   setMinutes(Math.floor(time/60)); // convert it to minutes
+  //   setSeconds(time%60); // convert it to seconds
+  // }, 1000);
+  // use effect
+  useEffect(() => {
+    let myInterval = setInterval(() => {
+      setTime(Math.round((Date.now() - startingTime)/ 1000)); // set the time from starting time
+      setMinutes(Math.floor(time/60)); // convert it to minutes
+      setSeconds(time%60); // convert it to seconds
+    }, 1000);
+    return () => clearInterval(myInterval);
+  }, [startingTime, time]);
+  
+
+  
 
   return (
     <div>
