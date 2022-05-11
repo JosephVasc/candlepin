@@ -1,0 +1,31 @@
+iframe {
+  display: none;
+}
+
+.dev-tool {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  background-color: var(--white, #fff);
+  border: 0.1em solid var(--black, #000);
+  width: 30%;
+  height: 20ch;
+  overflow: auto;
+}
+
+.dev-tool .minimize {
+  float: right;
+}
+
+.dev-tool.minimized {
+  height: 2rem;
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}

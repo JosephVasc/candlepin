@@ -1,0 +1,20 @@
+.navigation{
+  display: flex;
+  font: 20px;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  font-family: 'Bitter', serif;
+  font-weight: bold;
+  color: black;
+}
+.left {
+  position: relative;
+  right: 400px;
+  top: 0px;
+}
+.right {
+  position: relative;
+  left: 400px;
+  top: 0px;
+}
