@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { ApiClient } from './ApiClient';
 import { Player } from './model';
 import Frames from './Frames';
-import { ClientEventData } from './ApiClient';
 import { MdRestartAlt } from "react-icons/md";
 
 import './BowlingGame.css';
